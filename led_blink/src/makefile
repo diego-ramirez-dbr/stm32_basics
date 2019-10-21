@@ -1,6 +1,6 @@
 ## USER DEFINED VARIABLES ##
 PROJ_NAME = main
-SRCS = main.c ../device/system_stm32l1xx.c
+SRCS = main.c system_stm32l1xx.c
 
 
 ## COMPILER VARIABLES ##
@@ -25,7 +25,7 @@ OOCD_BOARD = stm32ldiscovery.cfg
 all: program
 
 program: $(PROJ_NAME).hex
-	openocd -f board/$(OOCD_BOARD) \
+			openocd -f board/$(OOCD_BOARD) \
 					-c "init" -c "targets" -c "halt" \
 					-c "flash write_image erase $(PROJ_NAME).hex" \
 					-c "verify_image $(PROJ_NAME).hex" \
@@ -43,6 +43,6 @@ clean:
 # Create the ELF version by mixing together the startup file,
 # application, and linker file
 %.elf: $(STARTUP) $(SRCS)
-	$(CC) -o $@ $(CFLAGS) --specs=nosys.specs -D $(DEVICE) -I $(DEVICE_DIR) -I $(CMSIS_DIR) -I $(PROJ_HEADERS) -Wl,-T $(DEVICE_DIR)/STM32L152RCTx_FLASH.ld $^
+	$(CC) -o $@ $(CFLAGS) --specs=nosys.specs -D $(DEVICE) -I $(DEVICE_DIR) -I $(CMSIS_DIR) -I $(PROJ_HEADERS) -Wl,-T $(DEVICE_DIR)/stm32l152rctx_flash.ld $^
 
 .PHONY: all clean program
