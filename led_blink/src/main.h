@@ -3,9 +3,6 @@
 
 #include <stdint.h>
 #include "stm32l152xc.h"
-
-// Define GPIOB pin mappings for our LED and button.
-#define BUTTON_PIN (2)
-#define LED_PIN    (6)
+#include "system_stm32l1xx.h"
 
 #endif
