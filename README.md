@@ -25,6 +25,6 @@ https://chocolatey.org/
 
 After installation all you have to do is give the following commands to command prompt/powershell:
 
-chocolatey install make
+chocolatey install make\n
 chocolatey install openocd
 
