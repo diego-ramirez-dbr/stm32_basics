@@ -25,6 +25,18 @@ https://chocolatey.org/
 
 After installation all you have to do is give the following commands to command prompt/powershell:
 
-chocolatey install make\n
+chocolatey install make
 chocolatey install openocd
+
+# Using the Toolchain
+Most of the toolchain we've set up is for building a project from source files. Another way of saying this is interpreting source files into a format that can be loaded onto our microcontroller. As mentioned above we will use GCC for compiling, and some of the tools included in binutils for assembling/linking. I won't discuss very much what that means exactly here, but basically we are using these tools to go from source files to executable files. I found this source very helpful with regards to what is happening in the build process:
+
+https://www.oreilly.com/library/view/programming-embedded-systems/0596009836/ch03.html
+
+After a file that can be used to program the board is generated, we use OpenOCD to interact with the ST-LINK/V2 to program the board. All of the above ends up being a lot of commands to run everytime we want to program our board, so we use the program Make to do it all with one command.
+
+# Make
+Make automates actions that a user gives the computer. It condenses any amount of actions the user would like to take into a single command. These commands are specified in a makefile. We'll review the makefile from the led_blink project to get an understanding of makefiles and of the commands we need to run to program the board:
+
+https://github.com/senorsandia/stm32_basics/blob/master/led_blink/src/makefile
 
