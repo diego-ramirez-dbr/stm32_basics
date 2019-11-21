@@ -17,7 +17,6 @@ int main() {
 	
 	// Clock setup, timer setup, interrupt setup
 	RCC->ICSCR &= ~(0x7 << 13); // Set MSI clock to 65.536 kHz (Couldn't figure out a way to use macros here that made sense)
-	RCC->AHBENR |= RCC_AHBENR_GPIOBEN; // Enable the GPIOB peripheral in 'RCC_AHBENR'
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN; // Enable General Purpose Timer 2 clock
 	TIM2->CR1 |= TIM_CR1_CEN; // Enable General Purpose Timer 2 Counter
 	NVIC_EnableIRQ(TIM2_IRQn); // Enable General Purpose Timer 2 Interrupts
@@ -30,6 +29,7 @@ int main() {
 	
 	// B6 is connected to an LED on the 'Discovery' board
 	// Set to push-pull output
+	RCC->AHBENR |= RCC_AHBENR_GPIOBEN;          // Enable the GPIOB peripheral in 'RCC_AHBENR'
 	GPIOB->MODER  &= ~(GPIO_MODER_MODER6);      // Reset pin B6 Mode configuration bits
 	GPIOB->MODER  |=  (GPIO_MODER_MODER6_0);    // Set pin B6 Mode to general purpose output mode
 	GPIOB->OTYPER &= ~(GPIO_OTYPER_OT_6);       // Set pin B6 output type to push-pull
