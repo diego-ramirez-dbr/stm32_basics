@@ -6822,6 +6822,7 @@ typedef struct
 #define TIM_CCMR1_OC1M_0                    (0x1UL << TIM_CCMR1_OC1M_Pos)       /*!< 0x00000010 */
 #define TIM_CCMR1_OC1M_1                    (0x2UL << TIM_CCMR1_OC1M_Pos)       /*!< 0x00000020 */
 #define TIM_CCMR1_OC1M_2                    (0x4UL << TIM_CCMR1_OC1M_Pos)       /*!< 0x00000040 */
+#define TIM_CCMR1_OC1M_PWM1                 (0x6UL << TIM_CCMR1_OC1M_Pos)       /*!< 0x00000060 */
 
 #define TIM_CCMR1_OC1CE_Pos                 (7U)                               
 #define TIM_CCMR1_OC1CE_Msk                 (0x1UL << TIM_CCMR1_OC1CE_Pos)      /*!< 0x00000080 */
