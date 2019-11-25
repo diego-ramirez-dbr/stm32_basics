@@ -1,6 +1,6 @@
 ## USER DEFINED VARIABLES ##
 PROJ_NAME = main
-SRCS = main.c system_stm32l1xx.c
+SRCS = main.c system_stm32l1xx.c tim5_pwm.c
 
 
 ## COMPILER VARIABLES ##
