@@ -6,8 +6,14 @@
 
 void tim5_pwm1_setup();
 
+void tim5_pwm2_setup();
+
 void tim5_pwm1_set_duty_cycle(int percent);
 
+void tim5_pwm2_set_duty_cycle(int percent);
+
 void tim5_pwm1_pin_setup();
+
+void tim5_pwm2_pin_setup();
 
 #endif
