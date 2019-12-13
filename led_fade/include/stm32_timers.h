@@ -22,4 +22,6 @@ void tim5_pwm2_pin_setup();
 
 void tim4_pwm1_pin_setup();
 
+tim4_set_period_as_percent_of_clk(int percent);
+
 #endif

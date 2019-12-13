@@ -108,3 +108,10 @@ void tim4_pwm1_pin_setup(){
 	GPIOB->AFR[0] &= ~(GPIO_AFRL_AFSEL6);       // Reset alternate function register bits corresponding to pin B6
 	GPIOB->AFR[0] |= 0x2000000;                 // Set alternate function for pin B6 to AF2 (TIM4_CH1)
 }
+
+void tim4_set_period_as_percent_of_clk(int percent){
+	float percent_float = (float) percent;
+	float period_count_float = ((percent_float/100) * 65535);
+	unsigned int period_count = (unsigned int) period_count_float);
+	TIM4->ARR = period_count;
+}
